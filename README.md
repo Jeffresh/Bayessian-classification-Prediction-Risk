@@ -1,2 +1,2 @@
 # Bayessian classification & Prediction Risk
-An example of a bayesian classification and determining the optimal decision boundary to do predictions.
+Some examples of a bayesian classification and determining the optimal decision boundary to do predictions. These examples illustrate the difficulty and problems of making predictions due to the positions of the density functions.
