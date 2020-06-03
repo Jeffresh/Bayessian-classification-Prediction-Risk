@@ -1,3 +1,4 @@
+%% a)
 clc;
 clear;
 close all;
@@ -5,12 +6,13 @@ close all;
 
 %b)
 ma = 20;
-sa = 20;
+sa = 3;
 
 mb = 25;
-sb = 25;
+sb = 2;
 
 n = 5000;
+
 
 %% c)
 
