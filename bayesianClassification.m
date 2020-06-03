@@ -35,8 +35,8 @@ Pw2=length(indices2)/length(y);
 A=s1*s1-s2*s2;
 B=2*(m1*s2*s2-m2*s1*s1);
 C=2*s1*s1*s2*s2*(log(Pw1)-log(Pw2)-log(s1)+log(s2))+s1*s1*m2*m2-s2*s2*m1*m1;
-x1=(-B+sqrt(B*B-4*A*C))/2/A
-x2=(-B-sqrt(B*B-4*A*C))/2/A
+x1=(-B+sqrt(B*B-4*A*C))/2/A % decision boundary on the right side
+x2=(-B-sqrt(B*B-4*A*C))/2/A % decision boundary on the left side
 I=-40:0.01:40;plot(I,Pw1*normpdf(I,m1,s1));hold on;
 plot(I,Pw2*normpdf(I,m2,s2),'r');hold off;
 
@@ -59,8 +59,8 @@ Pw2=length(indices2)/length(y);
 A=s1*s1-s2*s2;
 B=2*(m1*s2*s2-m2*s1*s1);
 C=2*s1*s1*s2*s2*(log(Pw1)-log(Pw2)-log(s1)+log(s2))+s1*s1*m2*m2-s2*s2*m1*m1;
-x1=(-B+sqrt(B*B-4*A*C))/2/A
-x2=(-B-sqrt(B*B-4*A*C))/2/A
+x1=(-B+sqrt(B*B-4*A*C))/2/A % decision boundary on the right
+x2=(-B-sqrt(B*B-4*A*C))/2/A % decision boundary on the left
 I=x1-10:0.1:x2+10;plot(I,Pw1*normpdf(I,m1,s1));hold on;
 plot(I,Pw2*normpdf(I,m2,s2),'r');hold off;
 
@@ -86,7 +86,7 @@ Pw2=length(indices2)/length(y);
 A=s1*s1-s2*s2;
 B=2*(m1*s2*s2-m2*s1*s1);
 C=2*s1*s1*s2*s2*(log(Pw1)-log(Pw2)-log(s1)+log(s2))+s1*s1*m2*m2-s2*s2*m1*m1;
-x1=(-B+sqrt(B*B-4*A*C))/2/A
-x2=(-B-sqrt(B*B-4*A*C))/2/A
+x1=(-B+sqrt(B*B-4*A*C))/2/A % decision boundary on the right
+x2=(-B-sqrt(B*B-4*A*C))/2/A % decision boundary on the left
 I=x1-80:0.1:x2+80;plot(I,Pw1*normpdf(I,m1,s1));hold on;
 plot(I,Pw2*normpdf(I,m2,s2),'r');hold off;
