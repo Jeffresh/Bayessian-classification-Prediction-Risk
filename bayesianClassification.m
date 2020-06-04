@@ -90,3 +90,23 @@ x1=(-B+sqrt(B*B-4*A*C))/2/A % decision boundary on the right
 x2=(-B-sqrt(B*B-4*A*C))/2/A % decision boundary on the left
 I=x1-80:0.1:x2+80;plot(I,Pw1*normpdf(I,m1,s1));hold on;
 plot(I,Pw2*normpdf(I,m2,s2),'r');hold off;
+
+%% f) 
+
+% is not symetrical, in c our boundaries are:
+x1 = 33.8638;
+x2 = 22.5118;
+
+% in d are :
+
+x1d = 33.3597;
+x2d = 23.4963;
+
+% in f are:
+x1f = 35.1978;
+x2f = 21.6353;
+
+variation1 = sqrt((x1-x1d)^2+(x2-x2d)^2)
+variation2 = sqrt((x1-x1f)^2+(x2-x2f)^2)
+
+% The variation is not equal
