@@ -20,8 +20,7 @@ pb = 0.5;
 
 % Generate data set
 
-x=[ma+sa*randn(1,n*pa) mb+sb*randn(1,n*pb)];
-y=[ones(1,n*pa) 2*ones(1,n*pb)];
+[x,y] = generate_data(ma,sa,pa,mb,sb,pb,n);
 
 indices1=find(y==1); indices2=find(y==2);
 m1=mean(x(indices1)); m2=mean(x(indices2));
@@ -45,8 +44,8 @@ randn('seed',0);
 pa = 0.7;
 pb = 0.3;
 
-x=[ma+sa*randn(1,n*pa) mb+sb*randn(1,n*pb)];
-y=[ones(1,n*pa) 2*ones(1,n*pb)];
+[x,y] = generate_data(ma,sa,pa,mb,sb,pb,n);
+
 
 indices1=find(y==1); indices2=find(y==2);
 m1=mean(x(indices1)); m2=mean(x(indices2));
@@ -72,8 +71,7 @@ randn('seed',0);
 pa = 0.3;
 pb = 0.7;
 
-x=[ma+sa*randn(1,n*pa) mb+sb*randn(1,n*pb)];
-y=[ones(1,n*pa) 2*ones(1,n*pb)];
+[x,y] = generate_data(ma,sa,pa,mb,sb,pb,n);
 
 indices1=find(y==1); indices2=find(y==2);
 m1=mean(x(indices1)); m2=mean(x(indices2));
