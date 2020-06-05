@@ -1,10 +1,8 @@
-%% a)
+%%  Generate data for two different classes using normal distribution
 clc;
 clear;
 close all;
 
-
-%b)
 ma = 20;
 sa = 3;
 
@@ -13,15 +11,14 @@ sb = 2;
 
 n = 5000;
 
-
-%% c)
-
-%a)
+%% Supposing same probability
 
 randn('seed',0);
 
 pa = 0.5;
 pb = 0.5;
+
+% Generate data set
 
 x=[ma+sa*randn(1,n*pa) mb+sb*randn(1,n*pb)];
 y=[ones(1,n*pa) 2*ones(1,n*pb)];
@@ -32,6 +29,7 @@ s1=std(x(indices1)); s2=std(x(indices2));
 Pw1=length(indices1)/length(y);
 Pw2=length(indices2)/length(y);
 
+% Compute the decision boundary
 A=s1*s1-s2*s2;
 B=2*(m1*s2*s2-m2*s1*s1);
 C=2*s1*s1*s2*s2*(log(Pw1)-log(Pw2)-log(s1)+log(s2))+s1*s1*m2*m2-s2*s2*m1*m1;
