@@ -29,19 +29,46 @@ indices1=find(y==1); indices2=find(y==2);
 m1=mean(x(indices1)); m2=mean(x(indices2));
 s1=std(x(indices1)); s2=std(x(indices2));
 
+% gets prior probability of each class, P(W1), P(W2)
 Pw1=length(indices1)/length(y);
 Pw2=length(indices2)/length(y);
 
 % gets conditional probability - likehood using Gaussian distribution 
 % P(X | W1) P(X | W2)
+
+I = -40:0.01:40;
+PXW1 = normpdf(I,m1,s1);
+PXW2 = normpdf(I,m2,s2);
+
+% Evalue using Maximum - Likelihood criteria 
+% p1 + p2 is not 1
+
+example =  x(3);
+p1= Pw1 * normpdf(example,m1,s1)
+p2= Pw2 * normpdf(example,m2,s2)
+[~,class] = max([p1,p2])
+
+% Evalue using MAP criteria
+%  the results are probabilities so p1 + p2 = 1
+
+example =  x(3);
+p1= Pw1 * normpdf(example,m1,s1);
+p2= Pw2 * normpdf(example,m2,s2);
+px = p1+p2;
+p1 = p1/px
+p2 = p2/px
+[~,class] = max([p1,p2])
+
+
+
 % Compute the decision boundary
-A=s1*s1-s2*s2;
-B=2*(m1*s2*s2-m2*s1*s1);
-C=2*s1*s1*s2*s2*(log(Pw1)-log(Pw2)-log(s1)+log(s2))+s1*s1*m2*m2-s2*s2*m1*m1;
-x1=(-B+sqrt(B*B-4*A*C))/2/A % decision boundary on the right side
-x2=(-B-sqrt(B*B-4*A*C))/2/A % decision boundary on the left side
-I=-40:0.01:40;plot(I,Pw1*normpdf(I,m1,s1));hold on;
-plot(I,Pw2*normpdf(I,m2,s2),'r');hold off;
+A=s1^2-s2^2;
+B=2*(m1*s2^2-m2*s1^2);
+C=2*s1^2*s2^2*(log(Pw1)-log(Pw2)-log(s1)+log(s2))+s1^2*m2^2-s2^2*m1^2;
+x1=(-B+sqrt(B^2-4*A*C))/2/A % decision boundary on the right side
+x2=(-B-sqrt(B^2-4*A*C))/2/A % decision boundary on the left side
+plot(I,Pw1*PXW1);hold on;
+plot(I,Pw2*PXW2,'r');hold off;
 
 %% d)
 
