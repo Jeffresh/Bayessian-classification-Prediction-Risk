@@ -25,14 +25,15 @@ pb = 0.5;
 % numer of elements of each class
 indices1=find(y==1); indices2=find(y==2);
 
-%gets mean and std of each lass
+% gets mean and std of each lass
 m1=mean(x(indices1)); m2=mean(x(indices2));
 s1=std(x(indices1)); s2=std(x(indices2));
-% gets prior probability of each class
+
 Pw1=length(indices1)/length(y);
 Pw2=length(indices2)/length(y);
 
-% gets conditional probability - likehood using Gaussian distribution
+% gets conditional probability - likehood using Gaussian distribution 
+% P(X | W1) P(X | W2)
 % Compute the decision boundary
 A=s1*s1-s2*s2;
 B=2*(m1*s2*s2-m2*s1*s1);
