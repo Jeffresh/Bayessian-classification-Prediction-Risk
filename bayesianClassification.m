@@ -65,9 +65,13 @@ p2 = p2/px
 A=s1^2-s2^2;
 B=2*(m1*s2^2-m2*s1^2);
 C=2*s1^2*s2^2*(log(Pw1)-log(Pw2)-log(s1)+log(s2))+s1^2*m2^2-s2^2*m1^2;
+
 x1=(-B+sqrt(B^2-4*A*C))/2/A % decision boundary on the right side
 x2=(-B-sqrt(B^2-4*A*C))/2/A % decision boundary on the left side
+
 plot(I,Pw1*PXW1);hold on;
+plot(x1*ones(1,10),linspace(0,0.15,10),'g');
+plot(x2*ones(1,10),linspace(0,0.15,10),'g');
 plot(I,Pw2*PXW2,'r');hold off;
 
 %% d)
