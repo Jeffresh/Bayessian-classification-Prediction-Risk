@@ -1,4 +1,5 @@
 %%  Generate data for two different classes using normal distribution
+% different std and mean.
 clc;
 clear;
 close all;
@@ -59,22 +60,14 @@ p1 = p1/px
 p2 = p2/px
 [~,class] = max([p1,p2])
 
-
-
-% Compute the decision boundary
-A=s1^2-s2^2;
-B=2*(m1*s2^2-m2*s1^2);
-C=2*s1^2*s2^2*(log(Pw1)-log(Pw2)-log(s1)+log(s2))+s1^2*m2^2-s2^2*m1^2;
-
-x1=(-B+sqrt(B^2-4*A*C))/2/A % decision boundary on the right side
-x2=(-B-sqrt(B^2-4*A*C))/2/A % decision boundary on the left side
+[x1,x2] = get_boundaries(m1,s1,m2,s2,Pw1,Pw2);
 
 plot(I,Pw1*PXW1);hold on;
 plot(x1*ones(1,10),linspace(0,0.15,10),'g');
 plot(x2*ones(1,10),linspace(0,0.15,10),'g');
 plot(I,Pw2*PXW2,'r');hold off;
 
-%% d)
+%% Generate dataset with probs p(a) > p(b)
 
 randn('seed',0);
 
@@ -99,8 +92,7 @@ I=x1-10:0.1:x2+10;plot(I,Pw1*normpdf(I,m1,s1));hold on;
 plot(I,Pw2*normpdf(I,m2,s2),'r');hold off;
 
 
-%% e)
-
+%% Generate dataset with probs p(a) < p(b)
 
 
 randn('seed',0);
@@ -124,18 +116,19 @@ x2=(-B-sqrt(B*B-4*A*C))/2/A % decision boundary on the left
 I=x1-80:0.1:x2+80;plot(I,Pw1*normpdf(I,m1,s1));hold on;
 plot(I,Pw2*normpdf(I,m2,s2),'r');hold off;
 
-%% f) 
+%% Be carefull the boundaries are not symetrical for classifaction p(a) = x, p(b) = y and p(a) = y and p(b) = x
 
-% is not symetrical, in c our boundaries are:
+% in p(a) = 0.5 and p(b) = 0.5 the boundaries are:
 x1 = 33.8638;
 x2 = 22.5118;
 
-% in d are :
+% in p(a) = 0.7 and p(b) = 0.3 the boundaries are :
 
 x1d = 33.3597;
 x2d = 23.4963;
 
-% in f are:
+% % in p(a) = 0.3 and p(b) = 0.7 the boundaries are :
+
 x1f = 35.1978;
 x2f = 21.6353;
 
