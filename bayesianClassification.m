@@ -91,7 +91,10 @@ Pw2=length(indices2)/length(y);
 I = -40:0.01:40;
 [x1,x2] = get_boundaries(m1,s1,m2,s2,Pw1,Pw2);
 
-I=x1-10:0.1:x2+10;plot(I,Pw1*normpdf(I,m1,s1));hold on;
+I=x1-10:0.1:x2+10;
+plot(I,Pw1*normpdf(I,m1,s1));hold on;
+plot(x1*ones(1,10),linspace(0,0.15,10),'g');
+plot(x2*ones(1,10),linspace(0,0.15,10),'g');
 plot(I,Pw2*normpdf(I,m2,s2),'r');hold off;
 
 
@@ -119,7 +122,10 @@ Pw2=length(indices2)/length(y);
 I = -40:0.01:40;
 [x1,x2] = get_boundaries(m1,s1,m2,s2,Pw1,Pw2);
 
-I=x1-80:0.1:x2+80;plot(I,Pw1*normpdf(I,m1,s1));hold on;
+I=x1-80:0.1:x2+80;
+plot(I,Pw1*normpdf(I,m1,s1));hold on;
+plot(x1*ones(1,10),linspace(0,0.15,10),'g');
+plot(x2*ones(1,10),linspace(0,0.15,10),'g');
 plot(I,Pw2*normpdf(I,m2,s2),'r');hold off;
 
 %% Be carefull the boundaries are not symetrical for classifaction p(a) = x, p(b) = y and p(a) = y and p(b) = x
